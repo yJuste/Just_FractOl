@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
-// --------------------PROTOTYPE--------------------
+// ----------------------PROTOTYPE----------------------
 int			ft_loop_hook(t_fract *fract);
 int			ft_close_window(t_fract *fract);
 void		ft_error(t_fract *fract, int error);
 void		ft_init(t_fract **fract);
-// -------------------------------------------------
+// -----------------------------------------------------
 
 int	main(int argc, char **argv)
 {

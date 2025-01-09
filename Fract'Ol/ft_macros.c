@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
-// --------------------PROTOTYPE--------------------
+// ----------------------------------PROTOTYPE----------------------------------
 int			ft_key_hook(int keycode, t_fract *fract);
 int			ft_mouse_hook(int button, int x, int y, t_fract *fract);
 void		ft_key_zoom_and_precision(int keycode, t_fract *fract);
 void		ft_key_translate(int keycode, t_fract *fract);
-// -------------------------------------------------
+// -----------------------------------------------------------------------------
 
 // Fonction principale qui appelle les différentes touches pressées.
 int	ft_key_hook(int keycode, t_fract *fract)
@@ -35,6 +35,7 @@ int	ft_key_hook(int keycode, t_fract *fract)
 	return (0);
 }
 
+// Gère le scroll de la souris.
 int	ft_mouse_hook(int button, int x, int y, t_fract *fract)
 {
 	if (button == SCROLL_UP)

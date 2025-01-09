@@ -11,16 +11,14 @@
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
-// --------------------PROTOTYPE--------------------
+// -------------------------PROTOTYPE-------------------------
 void		ft_julia(t_fract *fract, int x, int y);
 void		ft_draw_julia(t_fract *fract);
 void		ft_options_julia(t_fract *fract, char **argv);
-// -------------------------------------------------
+// -----------------------------------------------------------
 
 /*	Julia Part:
  *
- *	Z0 = 0
- *	Zn+1 = (Zn)² + C
  */
 void	ft_julia(t_fract *fract, int x, int y)
 {
@@ -71,6 +69,7 @@ void	ft_draw_julia(t_fract *fract)
 	mlx_put_image_to_window(fract->mlx, fract->win, fract->img->ptr, 0, 0);
 }
 
+// Parse les options de Julia.
 void	ft_options_julia(t_fract *fract, char **argv)
 {
 	if (ft_strcmp(argv[2], "a") == 0)

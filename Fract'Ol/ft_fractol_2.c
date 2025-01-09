@@ -11,13 +11,14 @@
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
-// --------------------PROTOTYPE--------------------
+// ---------------------------PROTOTYPE---------------------------
 void		ft_fractol(t_fract *fract);
 void		ft_set_fractol(t_fract *fract);
 void		ft_pixel_put(t_img *img, int x, int y, int color);
 void		ft_free_fract(t_fract *fract);
-// -------------------------------------------------
+// ---------------------------------------------------------------
 
+// Fonction principale de fractol.
 void	ft_fractol(t_fract *fract)
 {
 	if (fract->core->flg_iter == '0')
@@ -34,6 +35,7 @@ void	ft_fractol(t_fract *fract)
 	ft_set_fractol(fract);
 }
 
+// Met le type de fractol par rapport au parsing.
 void	ft_set_fractol(t_fract *fract)
 {
 	if (fract->core->set == 'm')

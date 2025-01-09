@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
-// --------------------PROTOTYPE--------------------
+// -----------------------------PROTOTYPE----------------------------
 void		ft_parse_arguments(t_fract *fract, char **argv);
 void		ft_parse_arguments_next(t_fract *fract, char **argv);
 void		ft_help(t_fract *fract);
-// -------------------------------------------------
+// ------------------------------------------------------------------
 
+// Analyse les arguments passés en paramètre.
 void	ft_parse_arguments(t_fract *fract, char **argv)
 {
 	fract->core->flg_iter = '0';
@@ -59,6 +60,7 @@ void	ft_parse_arguments_next(t_fract *fract, char **argv)
 	}
 }
 
+// Fonction d'erreur qui renvoie l'aide.
 void	ft_help(t_fract *fract)
 {
 	ft_printf(1, "\033[92m./fractol [sets] [version]\033[0m\n\n");
