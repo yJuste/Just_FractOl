@@ -20,7 +20,14 @@ void		ft_free_fract(t_fract *fract);
 
 void	ft_fractol(t_fract *fract)
 {
-	fract->core->iteration = 50;
+	if (fract->core->flg_iter == '0')
+	{
+		fract->core->iteration = 50;
+		fract->core->first_color = WHITE;
+		fract->core->second_color = BLACK;
+		fract->cam->real = -0.8;
+		fract->cam->i = 0.156;
+	}
 	fract->cam->zoom = 1.0;
 	fract->cam->offset_x = 0;
 	fract->cam->offset_y = 0;

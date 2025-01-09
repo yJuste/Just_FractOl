@@ -14,6 +14,7 @@
 // --------------------PROTOTYPE--------------------
 void		ft_mandelbrot(t_fract *fract, int x, int y);
 void		ft_draw_mandelbrot(t_fract *fract);
+void		ft_options_mandelbrot(t_fract *fract, char **argv);
 // -------------------------------------------------
 
 /*	Mandelbrot Part:
@@ -46,7 +47,8 @@ void	ft_mandelbrot(t_fract *fract, int x, int y)
 		z = ft_sum_cplx(ft_square_cplx(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
-			color = ft_scale(i, WHITE, BLACK, 0, fract->core->iteration);
+			color = ft_scale(i, fract->core->first_color,
+					fract->core->second_color, 0, fract->core->iteration);
 			ft_pixel_put(fract->img, x, y, color);
 			return ;
 		}
@@ -55,6 +57,7 @@ void	ft_mandelbrot(t_fract *fract, int x, int y)
 	ft_pixel_put(fract->img, x, y, BLACK);
 }
 
+// Dessine les points de mandelbrot.
 void	ft_draw_mandelbrot(t_fract *fract)
 {
 	int		x;
@@ -72,4 +75,32 @@ void	ft_draw_mandelbrot(t_fract *fract)
 		y++;
 	}
 	mlx_put_image_to_window(fract->mlx, fract->win, fract->img->ptr, 0, 0);
+}
+
+void	ft_options_mandelbrot(t_fract *fract, char **argv)
+{
+	if (ft_strcmp(argv[2], "a") == 0)
+	{
+		fract->core->iteration = 252;
+		fract->core->first_color = BLACK;
+		fract->core->second_color = WHITE;
+	}
+	else if (ft_strcmp(argv[2], "b") == 0)
+	{
+		fract->core->iteration = 254;
+		fract->core->first_color = BLACK;
+		fract->core->second_color = WHITE;
+	}
+	else if (ft_strcmp(argv[2], "c") == 0)
+	{
+		fract->core->iteration = 85;
+		fract->core->first_color = BLACK;
+		fract->core->second_color = RED;
+	}
+	else if (ft_strcmp(argv[2], "d") == 0)
+	{
+		fract->core->iteration = 80;
+		fract->core->first_color = BLACK;
+		fract->core->second_color = RED;
+	}
 }

@@ -73,12 +73,17 @@ typedef struct s_cam
 	double		zoom;
 	double		offset_x;
 	double		offset_y;
+	double		real;
+	double		i;
 }	t_cam;
 
 typedef struct s_core
 {
+	int			first_color;
+	int			second_color;
 	int			reset;
 	int			iteration;
+	char		flg_iter;
 	char		set;
 }	t_core;
 
@@ -102,6 +107,7 @@ void		ft_init(t_fract **fract);
 // ft_fractol_next.c
 
 void		ft_parse_arguments(t_fract *fract, char **argv);
+void		ft_parse_arguments_next(t_fract *fract, char **argv);
 void		ft_help(t_fract *fract);
 
 // ft_fractol_2.c
@@ -115,11 +121,13 @@ void		ft_free_fract(t_fract *fract);
 
 void		ft_mandelbrot(t_fract *fract, int x, int y);
 void		ft_draw_mandelbrot(t_fract *fract);
+void		ft_options_mandelbrot(t_fract *fract, char **argv);
 
 // ft_julia.c
 
 void		ft_julia(t_fract *fract, int x, int y);
 void		ft_draw_julia(t_fract *fract);
+void		ft_options_julia(t_fract *fract, char **argv);
 
 // ft_math.c
 

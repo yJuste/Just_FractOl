@@ -14,6 +14,7 @@
 // --------------------PROTOTYPE--------------------
 void		ft_julia(t_fract *fract, int x, int y);
 void		ft_draw_julia(t_fract *fract);
+void		ft_options_julia(t_fract *fract, char **argv);
 // -------------------------------------------------
 
 /*	Julia Part:
@@ -33,14 +34,15 @@ void	ft_julia(t_fract *fract, int x, int y)
 		+ fract->cam->offset_x;
 	z.y = (ft_scale(y, -2, +2, 0, HEIGHT) * fract->cam->zoom)
 		+ fract->cam->offset_y;
-	c.x = -0.8;
-	c.y = +0.156;
+	c.x = fract->cam->real;
+	c.y = fract->cam->i;
 	while (i < fract->core->iteration)
 	{
 		z = ft_sum_cplx(ft_square_cplx(z), c);
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
-			color = ft_scale(i, WHITE, BLACK, 0, fract->core->iteration);
+			color = ft_scale(i, fract->core->first_color,
+					fract->core->second_color, 0, fract->core->iteration);
 			ft_pixel_put(fract->img, x, y, color);
 			return ;
 		}
@@ -49,6 +51,7 @@ void	ft_julia(t_fract *fract, int x, int y)
 	ft_pixel_put(fract->img, x, y, BLACK);
 }
 
+// Dessine les points de Julia.
 void	ft_draw_julia(t_fract *fract)
 {
 	int		x;
@@ -66,4 +69,32 @@ void	ft_draw_julia(t_fract *fract)
 		y++;
 	}
 	mlx_put_image_to_window(fract->mlx, fract->win, fract->img->ptr, 0, 0);
+}
+
+void	ft_options_julia(t_fract *fract, char **argv)
+{
+	if (ft_strcmp(argv[2], "a") == 0)
+	{
+		fract->core->iteration = 500;
+		fract->core->first_color = BLACK;
+		fract->core->second_color = BLUE;
+		fract->cam->real = 0.285;
+		fract->cam->i = 0.013;
+	}
+	else if (ft_strcmp(argv[2], "b") == 0)
+	{
+		fract->core->iteration = 60;
+		fract->core->first_color = WHITE;
+		fract->core->second_color = BLACK;
+		fract->cam->real = -0.4;
+		fract->cam->i = 0.6;
+	}
+	else if (ft_strcmp(argv[2], "c") == 0)
+	{
+		fract->core->iteration = 85;
+		fract->core->first_color = BLACK;
+		fract->core->second_color = WHITE;
+		fract->cam->real = -1.476;
+		fract->cam->i = 0;
+	}
 }
