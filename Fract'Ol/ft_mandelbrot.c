@@ -38,9 +38,9 @@ void	ft_mandelbrot(t_fract *fract, int x, int y)
 	i = 0;
 	z.x = 0;
 	z.y = 0;
-	c.x = (ft_scale(x, -2, +2, 0, WIDTH) * fract->cam->zoom)
+	c.x = (ft_scale(x, -2, +2, WIDTH) * fract->cam->zoom)
 		+ fract->cam->offset_x;
-	c.y = (ft_scale(y, -2, +2, 0, HEIGHT) * fract->cam->zoom)
+	c.y = (ft_scale(y, -2, +2, HEIGHT) * fract->cam->zoom)
 		+ fract->cam->offset_y;
 	while (i < fract->core->iteration)
 	{
@@ -48,7 +48,7 @@ void	ft_mandelbrot(t_fract *fract, int x, int y)
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			color = ft_scale(i, fract->core->first_color,
-					fract->core->second_color, 0, fract->core->iteration);
+					fract->core->second_color, fract->core->iteration);
 			ft_pixel_put(fract->img, x, y, color);
 			return ;
 		}

@@ -30,9 +30,9 @@ void	ft_julia(t_fract *fract, int x, int y)
 	t_complex	c;
 
 	i = 0;
-	z.x = (ft_scale(x, -2, +2, 0, WIDTH) * fract->cam->zoom)
+	z.x = (ft_scale(x, -2, +2, WIDTH) * fract->cam->zoom)
 		+ fract->cam->offset_x;
-	z.y = (ft_scale(y, -2, +2, 0, HEIGHT) * fract->cam->zoom)
+	z.y = (ft_scale(y, -2, +2, HEIGHT) * fract->cam->zoom)
 		+ fract->cam->offset_y;
 	c.x = fract->cam->real;
 	c.y = fract->cam->i;
@@ -42,7 +42,7 @@ void	ft_julia(t_fract *fract, int x, int y)
 		if ((z.x * z.x) + (z.y * z.y) > 4)
 		{
 			color = ft_scale(i, fract->core->first_color,
-					fract->core->second_color, 0, fract->core->iteration);
+					fract->core->second_color, fract->core->iteration);
 			ft_pixel_put(fract->img, x, y, color);
 			return ;
 		}
