@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lib.c                                       :+:      :+:    :+:   */
+/*   ft_math.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,51 +11,25 @@
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
-// ----------------------PROTOTYPE--------------------
-void		*ft_calloc(size_t count, size_t size);
-char		*ft_strlowcase(char *str);
-int			ft_strcmp(const char *s1, const char *s2);
-// ---------------------------------------------------
+// --------------------PROTOTYPE--------------------
+double		ft_scale(double n, double new_min, double new_max,
+				double old_min, double old_max);
+int			ft_gradient(t_fract *fract, int iteration);
+// -------------------------------------------------
 
-void	*ft_calloc(size_t count, size_t size)
+// Fonction pour changer d'échelle de mesure.
+// 	ex: [0;500] -> [-2;+2]
+double	ft_scale(double n, double new_min, double new_max,
+		double old_min, double old_max)
 {
-	size_t		i;
-	size_t		tot;
-	void		*ptr;
-
-	i = 0;
-	tot = count * size;
-	ptr = malloc(tot);
-	if (!ptr)
-		return (NULL);
-	while (i < tot)
-	{
-		((char *)ptr)[i] = 0;
-		i++;
-	}
-	return (ptr);
+	return ((new_max - new_min) * (n - old_min)
+		/ (old_max - old_min) + new_min);
 }
 
-char	*ft_strlowcase(char *str)
+int	ft_gradient(t_fract *fract, int iteration)
 {
-	size_t		i;
+	int		intensity;
 
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] >= 'A' && str[i] <= 'Z')
-			str[i] += 32;
-		i++;
-	}
-	return (str);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	size_t		i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] && s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+	intensity = ft_scale(iteration, 0, 255, 0, fract->core->iteration);
+	return (intensity << 16 | intensity << 8 | intensity);
 }
