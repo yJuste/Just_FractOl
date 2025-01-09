@@ -1,7 +1,7 @@
 NAME = fractol
 
 CC = cc
-CFLAGS = -g
+CFLAGS = -Wall -Wextra -Werror
 
 MINILIBX = libmlx_Linux.a
 PATH_MINILIBX = minilibx_linux

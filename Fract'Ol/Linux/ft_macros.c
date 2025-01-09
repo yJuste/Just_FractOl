@@ -42,6 +42,8 @@ int	ft_mouse_hook(int button, int x, int y, t_fract *fract)
 		fract->cam->zoom *= 1.1;
 	else if (button == SCROLL_DOWN)
 		fract->cam->zoom *= 0.9;
+	(void)x;
+	(void)y;
 	return (0);
 }
 

@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 {
 	t_fract		*fract;
 
+	fract = NULL;
 	if (argc == 2 || argc == 3)
 	{
 		ft_init(&fract);
