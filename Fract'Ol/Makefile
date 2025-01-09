@@ -15,6 +15,7 @@ SRC =	ft_fractol.c			\
 	ft_fractol_next.c		\
 	ft_fractol_2.c			\
 	ft_mandelbrot.c			\
+	ft_julia.c			\
 	ft_math.c			\
 	ft_macros.c			\
 	ft_lib.c			\

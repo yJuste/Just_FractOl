@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_julia.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,22 +12,16 @@
 #include "ft_fractol.h"
 
 // --------------------PROTOTYPE--------------------
-void		ft_mandelbrot(t_fract *fract, int x, int y);
-void		ft_draw_mandelbrot(t_fract *fract);
+void		ft_julia(t_fract *fract, int x, int y);
+void		ft_draw_julia(t_fract *fract);
 // -------------------------------------------------
 
-/*	Mandelbrot Part:
+/*	Julia Part:
  *
  *	Z0 = 0
  *	Zn+1 = (Zn)² + C
- *
- *	Good Spot:
- *
- *	BLK->WHITE: 240: The Spectrum ; 252: Killua ; 254: Spaceship
- *	BLK->RED: 80: Evergreen ; 85: Irruption
- *	WHITE->BLK: 85: Deus ; 80: Vulvix ; 145: Fireball ; 240: Mastermind
  */
-void	ft_mandelbrot(t_fract *fract, int x, int y)
+void	ft_julia(t_fract *fract, int x, int y)
 {
 	int			i;
 	int			color;
@@ -35,12 +29,12 @@ void	ft_mandelbrot(t_fract *fract, int x, int y)
 	t_complex	c;
 
 	i = 0;
-	z.x = 0;
-	z.y = 0;
-	c.x = (ft_scale(x, -2, +2, 0, WIDTH) * fract->cam->zoom)
+	z.x = (ft_scale(x, -2, +2, 0, WIDTH) * fract->cam->zoom)
 		+ fract->cam->offset_x;
-	c.y = (ft_scale(y, -2, +2, 0, HEIGHT) * fract->cam->zoom)
+	z.y = (ft_scale(y, -2, +2, 0, HEIGHT) * fract->cam->zoom)
 		+ fract->cam->offset_y;
+	c.x = -0.8;
+	c.y = +0.156;
 	while (i < fract->core->iteration)
 	{
 		z = ft_sum_cplx(ft_square_cplx(z), c);
@@ -55,7 +49,7 @@ void	ft_mandelbrot(t_fract *fract, int x, int y)
 	ft_pixel_put(fract->img, x, y, BLACK);
 }
 
-void	ft_draw_mandelbrot(t_fract *fract)
+void	ft_draw_julia(t_fract *fract)
 {
 	int		x;
 	int		y;
@@ -66,7 +60,7 @@ void	ft_draw_mandelbrot(t_fract *fract)
 		x = 0;
 		while (x < WIDTH)
 		{
-			ft_mandelbrot(fract, x, y);
+			ft_julia(fract, x, y);
 			x++;
 		}
 		y++;

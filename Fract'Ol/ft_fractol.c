@@ -53,7 +53,7 @@ int	ft_loop_hook(t_fract *fract)
 		ft_fractol(fract);
 	}
 	else
-		ft_draw_fractol(fract);
+		ft_set_fractol(fract);
 	return (0);
 }
 

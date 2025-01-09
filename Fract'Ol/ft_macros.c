@@ -61,7 +61,6 @@ void	ft_key_zoom_and_precision(int keycode, t_fract *fract)
 		fract->cam->zoom *= 0.9;
 	if (fract->core->iteration <= 0)
 		fract->core->iteration = 5;
-	ft_printf(1, "%d", fract->core->iteration);
 }
 
 // Gére les touches de TRANSLATION.

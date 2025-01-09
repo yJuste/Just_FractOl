@@ -105,22 +105,29 @@ void		ft_parse_arguments(t_fract *fract, char **argv);
 void		ft_help(t_fract *fract);
 
 // ft_fractol_2.c
+
 void		ft_fractol(t_fract *fract);
-void		ft_draw_fractol(t_fract *fract);
+void		ft_set_fractol(t_fract *fract);
+void		ft_pixel_put(t_img *img, int x, int y, int color);
 void		ft_free_fract(t_fract *fract);
 
 // ft_mandelbrot.c
 
-void		ft_mandelbrot(t_fract *fract, t_complex *cplx, int x, int y);
-t_complex	ft_sum_cplx(t_complex z, t_complex c);
-t_complex	ft_square_cplx(t_complex z);
-void		ft_pixel_put(t_img *img, int x, int y, int color);
+void		ft_mandelbrot(t_fract *fract, int x, int y);
+void		ft_draw_mandelbrot(t_fract *fract);
+
+// ft_julia.c
+
+void		ft_julia(t_fract *fract, int x, int y);
+void		ft_draw_julia(t_fract *fract);
 
 // ft_math.c
 
 double		ft_scale(double n, double new_min, double new_max,
 				double old_min, double old_max);
 int			ft_gradient(t_fract *fract, int iteration);
+t_complex	ft_sum_cplx(t_complex z, t_complex c);
+t_complex	ft_square_cplx(t_complex z);
 
 // ft_macros.c
 
