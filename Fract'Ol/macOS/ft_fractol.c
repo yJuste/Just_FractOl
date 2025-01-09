@@ -72,6 +72,10 @@ int	ft_close_window(t_fract *fract)
 // Fonction d'erreur.
 void	ft_error(t_fract *fract, int error)
 {
+	if (fract)
+		ft_free_fract(fract);
+	if (fract)
+		free(fract);
 	ft_printf(2, "%s\n", strerror(error));
 	exit(error);
 }
