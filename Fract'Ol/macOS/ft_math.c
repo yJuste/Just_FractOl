@@ -22,6 +22,8 @@ t_complex	ft_square_cplx(t_complex z);
 // 	ex: [0;500] -> [-2;+2]
 double	ft_scale(double n, double new_min, double new_max, double old_max)
 {
+	if (old_max == 0 && new_min == 0)
+		return (new_min);
 	return ((new_max - new_min) * (n - 0) / (old_max - 0) + new_min);
 }
 
@@ -30,7 +32,7 @@ int	ft_gradient(t_fract *fract, int iteration)
 {
 	int		intensity;
 
-	intensity = ft_scale(iteration, 0, 255, fract->core->iteration);
+	intensity = ft_scale(iteration, 50, 255, fract->core->iteration);
 	return (intensity << 16 | intensity << 8 | intensity);
 }
 
