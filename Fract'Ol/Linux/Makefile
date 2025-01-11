@@ -18,6 +18,7 @@ SRC =	ft_fractol.c			\
 	ft_julia.c			\
 	ft_math.c			\
 	ft_macros.c			\
+	ft_macros_next.c		\
 	ft_lib.c			\
 	Get_Next_Line/get_next_line.c
 

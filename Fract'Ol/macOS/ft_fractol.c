@@ -36,6 +36,7 @@ int	main(int argc, char **argv)
 		ft_fractol(fract);
 		mlx_hook(fract->win, 2, 0, ft_key_hook, fract);
 		mlx_hook(fract->win, 17, 0, ft_close_window, fract);
+		mlx_hook(fract->win, 6, 0, ft_mouse_tracker, fract);
 		mlx_mouse_hook(fract->win, ft_mouse_hook, fract);
 		mlx_loop_hook(fract->mlx, ft_loop_hook, fract);
 		mlx_loop(fract->mlx);

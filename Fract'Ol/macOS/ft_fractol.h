@@ -83,6 +83,7 @@ typedef struct s_core
 	int			second_color;
 	int			reset;
 	int			iteration;
+	int			flg;
 	char		flg_iter;
 	char		set;
 }	t_core;
@@ -139,9 +140,14 @@ t_complex	ft_square_cplx(t_complex z);
 // ft_macros.c
 
 int			ft_key_hook(int keycode, t_fract *fract);
-int			ft_mouse_hook(int button, int x, int y, t_fract *fract);
 void		ft_key_zoom_and_precision(int keycode, t_fract *fract);
 void		ft_key_translate(int keycode, t_fract *fract);
+
+// ft_macros_next.c
+
+int			ft_mouse_hook(int button, int x, int y, t_fract *fract);
+int			ft_mouse_tracker(int x, int y, t_fract *fract);
+int			ft_mouse_tracker_next(t_fract *fract);
 
 // ft_lib.c
 

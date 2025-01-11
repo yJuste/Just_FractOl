@@ -35,18 +35,6 @@ int	ft_key_hook(int keycode, t_fract *fract)
 	return (0);
 }
 
-// Gère le scroll de la souris.
-int	ft_mouse_hook(int button, int x, int y, t_fract *fract)
-{
-	if (button == SCROLL_UP)
-		fract->cam->zoom *= 1.1;
-	else if (button == SCROLL_DOWN)
-		fract->cam->zoom *= 0.9;
-	(void)x;
-	(void)y;
-	return (0);
-}
-
 // Gére les touches de ZOOM.
 void	ft_key_zoom_and_precision(int keycode, t_fract *fract)
 {
