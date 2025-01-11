@@ -24,8 +24,8 @@ SRC =	ft_fractol.c			\
 
 OBJ = $(SRC:.c=.o)
 
-NORMINETTE =	ft_*.c		\
-		ft_*.h		\
+NORMINETTE =	*.c		\
+		*.h		\
 		Get_Next_Line	\
 		Printf_fd
 
