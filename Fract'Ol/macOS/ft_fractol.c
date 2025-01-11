@@ -49,13 +49,7 @@ int	main(int argc, char **argv)
 // Applique les modifs de mlx_hook.
 int	ft_loop_hook(t_fract *fract)
 {
-	if (fract->core->reset == 1)
-	{
-		fract->core->reset = 0;
-		ft_fractol(fract);
-	}
-	else
-		ft_set_fractol(fract);
+	ft_set_fractol(fract);
 	return (0);
 }
 

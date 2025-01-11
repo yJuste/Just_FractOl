@@ -81,7 +81,6 @@ typedef struct s_core
 {
 	int			first_color;
 	int			second_color;
-	int			reset;
 	int			iteration;
 	int			flg;
 	char		flg_iter;

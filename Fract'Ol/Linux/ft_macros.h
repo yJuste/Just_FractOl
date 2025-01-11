@@ -15,8 +15,8 @@
 # define FT_MACROS_H
 
 // Utilise la même valeure pour ne pas déformer la fractale.
-# define WIDTH			1300
-# define HEIGHT			1300
+# define WIDTH			700
+# define HEIGHT			700
 
 // Colors
 

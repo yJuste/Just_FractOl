@@ -59,7 +59,7 @@ void	ft_key_translate(int keycode, t_fract *fract)
 {
 	if (keycode == KEY_R)
 	{
-		fract->core->reset = 1;
+		ft_fractol(fract);
 		return ;
 	}
 	if (keycode == ARROW_LEFT)
