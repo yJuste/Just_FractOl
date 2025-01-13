@@ -20,6 +20,8 @@ void		ft_key_translate(int keycode, t_fract *fract);
 // Fonction principale qui appelle les différentes touches pressées.
 int	ft_key_hook(int keycode, t_fract *fract)
 {
+	if (fract->core->flg_iter == '0')
+		fract->core->iteration = ft_inverse(fract->cam->zoom, 10, 0.1);
 	if (keycode == NUM_PAD_PLUS || keycode == MAIN_PAD_PLUS
 		|| keycode == NUM_PAD_MINUS || keycode == MAIN_PAD_MINUS
 		|| keycode == NUM_PAD_1 || keycode == NUM_PAD_4

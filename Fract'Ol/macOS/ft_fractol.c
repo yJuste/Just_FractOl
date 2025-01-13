@@ -23,10 +23,10 @@ int	main(int argc, char **argv)
 	t_fract		*fract;
 
 	fract = NULL;
-	if (argc == 2 || argc == 3)
+	if (argc >= 2 && argc <= 4)
 	{
 		ft_init(&fract);
-		ft_parse_arguments(fract, argv);
+		ft_parse_arguments(fract, argc, argv);
 		fract->mlx = mlx_init();
 		fract->win = mlx_new_window(fract->mlx, WIDTH, HEIGHT,
 				"Just'FractOl");
@@ -49,6 +49,8 @@ int	main(int argc, char **argv)
 // Applique les modifs de mlx_hook.
 int	ft_loop_hook(t_fract *fract)
 {
+	if (fract->core->flg_iter == '0')
+		fract->core->iteration += 1;
 	ft_set_fractol(fract);
 	return (0);
 }

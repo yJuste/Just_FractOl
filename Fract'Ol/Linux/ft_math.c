@@ -14,6 +14,7 @@
 // ----------------------------------PROTOTYPE---------------------------------
 double		ft_scale(double n, double new_min, double new_max, double old_max);
 int			ft_gradient(t_fract *fract, int iteration);
+int			ft_inverse(double x, int a, double n);
 t_complex	ft_sum_cplx(t_complex z, t_complex c);
 t_complex	ft_square_cplx(t_complex z);
 // ----------------------------------------------------------------------------
@@ -34,6 +35,11 @@ int	ft_gradient(t_fract *fract, int iteration)
 
 	intensity = ft_scale(iteration, 0, 255, fract->core->iteration);
 	return (intensity << 16 | intensity << 8 | intensity);
+}
+
+int	ft_inverse(double x, int a, double n)
+{
+	return (a / pow(x, n));
 }
 
 // Additionne des nombres complexes.

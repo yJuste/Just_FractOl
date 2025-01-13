@@ -50,6 +50,7 @@ int	main(int argc, char **argv)
 int	ft_loop_hook(t_fract *fract)
 {
 	ft_set_fractol(fract);
+	fract->core->iteration += 2;
 	return (0);
 }
 
