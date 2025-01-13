@@ -76,6 +76,7 @@ typedef struct s_core
 	int			second_color;
 	int			reset;
 	int			iteration;
+	int			statik;
 	int			flg;
 	char		flg_iter;
 	char		set;
@@ -100,8 +101,9 @@ void		ft_init(t_fract **fract);
 
 // ft_fractol_next.c
 
-void		ft_parse_arguments(t_fract *fract, char **argv);
-void		ft_parse_arguments_next(t_fract *fract, char **argv);
+void		ft_parse_arguments(t_fract *fract, int argc, char **argv);
+void		ft_parse_arguments_next(t_fract *fract, int argc, char **argv);
+void		ft_parse_arguments_3(t_fract *fract, int argc, char **argv);
 void		ft_help(t_fract *fract);
 
 // ft_fractol_2.c
@@ -141,7 +143,7 @@ void		ft_key_translate(int keycode, t_fract *fract);
 
 int			ft_mouse_hook(int button, int x, int y, t_fract *fract);
 int			ft_mouse_tracker(int x, int y, t_fract *fract);
-int			ft_mouse_tracker_next(t_fract *fract);
+int			ft_mouse_tracker_next(int x, int y, t_fract *fract);
 
 // ft_lib.c
 

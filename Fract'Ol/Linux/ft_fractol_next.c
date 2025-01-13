@@ -11,14 +11,15 @@
 /* ************************************************************************** */
 #include "ft_fractol.h"
 
-// -----------------------------PROTOTYPE----------------------------
-void		ft_parse_arguments(t_fract *fract, char **argv);
-void		ft_parse_arguments_next(t_fract *fract, char **argv);
+// ----------------------------------PROTOTYPE---------------------------------
+void		ft_parse_arguments(t_fract *fract, int argc, char **argv);
+void		ft_parse_arguments_next(t_fract *fract, int argc, char **argv);
+void		ft_parse_arguments_3(t_fract *fract, int argc, char **argv);
 void		ft_help(t_fract *fract);
-// ------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 // Analyse les arguments passés en paramètre.
-void	ft_parse_arguments(t_fract *fract, char **argv)
+void	ft_parse_arguments(t_fract *fract, int argc, char **argv)
 {
 	fract->core->flg_iter = '0';
 	ft_strlowcase(argv[1]);
@@ -30,10 +31,11 @@ void	ft_parse_arguments(t_fract *fract, char **argv)
 		fract->core->set = 'm';
 	else
 		ft_help(fract);
-	ft_parse_arguments_next(fract, argv);
+	if (argc == 3 || argc == 4)
+		ft_parse_arguments_next(fract, argc, argv);
 }
 
-void	ft_parse_arguments_next(t_fract *fract, char **argv)
+void	ft_parse_arguments_next(t_fract *fract, int argc, char **argv)
 {
 	if (argv[2])
 	{
@@ -58,6 +60,25 @@ void	ft_parse_arguments_next(t_fract *fract, char **argv)
 				ft_help(fract);
 		}
 	}
+	if (argc == 4)
+		ft_parse_arguments_3(fract, argc, argv);
+}
+
+void	ft_parse_arguments_3(t_fract *fract, int argc, char **argv)
+{
+	if (argv[3])
+	{
+		ft_strlowcase(argv[3]);
+		if (ft_strcmp(argv[3], "static") == 0)
+			fract->core->statik = 1;
+		else if (ft_strcmp(argv[3], "statik") == 0)
+			fract->core->statik = 1;
+		else if (ft_strcmp(argv[3], "s") == 0)
+			fract->core->statik = 1;
+		else
+			ft_help(fract);
+	}
+	(void)argc;
 }
 
 // Fonction d'erreur qui renvoie l'aide.
