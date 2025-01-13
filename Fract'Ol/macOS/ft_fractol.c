@@ -58,8 +58,6 @@ int	ft_close_window(t_fract *fract)
 {
 	if (fract)
 		ft_free_fract(fract);
-	if (fract)
-		free(fract);
 	ft_printf(1, "Window closed\n");
 	exit(2);
 	return (0);
@@ -70,8 +68,6 @@ void	ft_error(t_fract *fract, int error)
 {
 	if (fract)
 		ft_free_fract(fract);
-	if (fract)
-		free(fract);
 	ft_printf(2, "%s\n", strerror(error));
 	exit(error);
 }

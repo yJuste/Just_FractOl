@@ -70,7 +70,7 @@ void	ft_help(t_fract *fract)
 	ft_printf(1, "version for mandelbrot:\t[a] Killua\t");
 	ft_printf(1, "[b] Spaceship\t[c] Irruption\t[d] Evergreen\n");
 	ft_printf(1, "\n=>   do `make help` for more.   <=\n");
-	ft_free_fract(fract);
-	free(fract);
+	if (fract)
+		ft_free_fract(fract);
 	exit(3);
 }

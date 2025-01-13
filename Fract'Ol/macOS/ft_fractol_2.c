@@ -72,4 +72,5 @@ void	ft_free_fract(t_fract *fract)
 	free(fract->cam);
 	free(fract->core);
 	free(fract->cplx);
+	free(fract);
 }

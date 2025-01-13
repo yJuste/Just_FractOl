@@ -58,10 +58,6 @@ void	ft_pixel_put(t_img *img, int x, int y, int color)
 //	----------GOTO FREE----------
 
 // Libére toutes les variables dans fractol.
-/* Ne pas ajouter cette ligne si mlx_destroy_display() n'existe pas.
- *	if (fract->mlx)
- *		free(fract->mlx);
- */
 void	ft_free_fract(t_fract *fract)
 {
 	if (fract->img->ptr)
@@ -75,4 +71,5 @@ void	ft_free_fract(t_fract *fract)
 	free(fract->cam);
 	free(fract->core);
 	free(fract->cplx);
+	free(fract);
 }
