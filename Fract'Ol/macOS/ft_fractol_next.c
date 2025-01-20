@@ -90,6 +90,7 @@ void	ft_help(t_fract *fract)
 	ft_printf(1, "[b] The Kiss\t[c] The Void\n");
 	ft_printf(1, "version for mandelbrot:\t[a] Killua\t");
 	ft_printf(1, "[b] Spaceship\t[c] Irruption\t[d] Evergreen\n");
+	ft_printf(1, "add static at the end for deleting the color shift.\n");
 	ft_printf(1, "\n=>   do `make help` for more.   <=\n");
 	if (fract)
 		ft_free_fract(fract);
