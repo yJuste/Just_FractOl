@@ -22,6 +22,8 @@ int			ft_mouse_tracker_next(int x, int y, t_fract *fract);
 // Gère le scroll de la souris.
 int	ft_mouse_hook(int button, int x, int y, t_fract *fract)
 {
+	if (fract->core->flg_iter == '0')
+		fract->core->iteration = ft_inverse(fract->cam->zoom, 10, 0.1);
 	if (button == SCROLL_UP)
 		fract->cam->zoom *= 1.1;
 	else if (button == SCROLL_DOWN)
