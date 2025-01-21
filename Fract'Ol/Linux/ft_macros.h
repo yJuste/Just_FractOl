@@ -6,10 +6,10 @@
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created:   by Just'                               #+#    #+#             */
-/*   Updated: 2025/01/09 20:34:59 by jlongin          ###   ########.fr       */
+/*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Gestion des touches du clavier.                                        */
+/*   • Gestion des touches du clavier.                                LINUX   */
 /* ************************************************************************** */
 #ifndef FT_MACROS_H
 # define FT_MACROS_H

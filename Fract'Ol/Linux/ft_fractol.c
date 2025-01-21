@@ -9,6 +9,14 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+/*   • Affiche des fractales.                                                 */
+/*   • ./a.out [ 1/2 ] [ a/b/c/d ] [static]                                   */
+/*      -> 1: julia, 2: mandelbrot                                            */
+/*      -> For julia:          a: The Anchor, b: The Kiss, c: The Void        */
+/*      -> For mandelbrot:    a: Killua,        b: Spaceship,                 */
+/*                            c: Irruption,     d: Evergreen                  */
+/*      -> Ajouter le flag `static` permet d'enlever le color shift.          */
+/* ************************************************************************** */
 #include "ft_fractol.h"
 
 // ----------------------PROTOTYPE----------------------

@@ -71,7 +71,7 @@ s:
 
 help:
 	@echo $(GREEN)
-	@head -n 11 ft_fractol.h
+	@head -n 19 ft_fractol.h
 	@echo $(RESET)
 
 norm:

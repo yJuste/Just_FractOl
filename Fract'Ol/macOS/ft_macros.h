@@ -9,7 +9,7 @@
 /*   Updated:   by Just'                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-/*   • Gestion des touches du clavier.                                        */
+/*   • Gestion des touches du clavier.                                MACOS   */
 /* ************************************************************************** */
 #ifndef FT_MACROS_H
 # define FT_MACROS_H
